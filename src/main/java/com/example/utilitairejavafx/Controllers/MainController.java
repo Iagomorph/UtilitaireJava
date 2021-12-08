@@ -41,9 +41,38 @@ public class MainController implements Initializable {
     @FXML
     private VBox containerCentral;
 
+    @FXML
+    private VBox imcContainer;
+
+    @FXML
+    private VBox converterContainer;
+
+    @FXML
+    private VBox armySimContainer;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        containerCentral.getChildren().removeAll(imcContainer,armySimContainer,converterContainer,tabBiblio);
+        btnConvert.setOnMouseClicked(btnaction -> {
+            //affiche la vbox correspondante au bouton
+            containerCentral.getChildren().removeAll(imcContainer,armySimContainer,converterContainer,tabBiblio);
+            containerCentral.getChildren().add(converterContainer);
+        });
+        btnIMC.setOnMouseClicked(btnaction -> {
+            //affiche la vbox correspondante au bouton
+            containerCentral.getChildren().removeAll(imcContainer,armySimContainer,converterContainer,tabBiblio);
+            containerCentral.getChildren().add(imcContainer);
+        });
+        btnLibrary.setOnMouseClicked(btnaction -> {
+            //affiche la vbox correspondante au bouton
+            containerCentral.getChildren().removeAll(imcContainer,armySimContainer,converterContainer,tabBiblio);
+            containerCentral.getChildren().add(tabBiblio);
+        });
+        btnSim.setOnMouseClicked(btnaction -> {
+            //affiche la vbox correspondante au bouton
+            containerCentral.getChildren().removeAll(imcContainer,armySimContainer,converterContainer,tabBiblio);
+            containerCentral.getChildren().add(armySimContainer);
+        });
 
     }
 }
