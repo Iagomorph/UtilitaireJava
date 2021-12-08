@@ -130,8 +130,8 @@
                            <children>
                               <fx:include fx:id="armySimContainer" source="ArmySim.fxml" />
                               <fx:include fx:id="tabBiblio" source="Bibliotheque.fxml" />
-                              <fx:include fx:id="converterContainer" source="Converter.fxml" />
                               <fx:include fx:id="imcContainer" source="Imc.fxml" />
+                              <fx:include fx:id="converterContainer" source="Converter.fxml" />
                            </children>
                         </VBox>
                      </children>

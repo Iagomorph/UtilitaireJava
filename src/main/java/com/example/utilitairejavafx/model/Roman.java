@@ -3,7 +3,7 @@ package com.example.utilitairejavafx.model;
 public class Roman {
     public String decimalToRomain(int dec) {
         String result = "";
-        if (dec <= 10000) {
+        if (dec <= 3999) {
             if ((dec / 1000) > 0) {
                 int millier = (int) Math.floor(dec / 1000);
                 dec = dec - (millier * 1000);
