@@ -1,11 +1,15 @@
 package com.example.utilitairejavafx.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class MainController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainController implements Initializable {
     @FXML
     private Font x1;
 
@@ -30,4 +34,8 @@ public class MainController {
     @FXML
     private Button btnSim;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
