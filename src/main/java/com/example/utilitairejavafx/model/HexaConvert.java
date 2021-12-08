@@ -54,7 +54,7 @@ public class HexaConvert {
         return result;
     }
 
-    public static int hexadecimalToDecimal(String hexa){
+    public String hexadecimalToDecimal(String hexa){
         String[] splitHexa = hexa.split("");
         List<String> lettres = new ArrayList<>();
         int result = 0;
@@ -90,6 +90,6 @@ public class HexaConvert {
                 j--;
             }
         }
-        return result;
+        return String.valueOf(result);
     }
 }
