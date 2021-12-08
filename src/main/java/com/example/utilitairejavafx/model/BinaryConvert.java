@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryConvert {
-    public int binaireToDecimal(String bin){
+    public String binaireToDecimal(String bin){
         String[] arrayofChars = new String[bin.length()];
         int j = 0;
         int result = 0;
@@ -17,7 +17,7 @@ public class BinaryConvert {
             }
             j++;
         }
-        return result;
+        return String.valueOf(result);
     }
     public String decimalToBinaire(int dec){
         List<String> Bin = new ArrayList<>();
