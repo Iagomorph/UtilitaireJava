@@ -27,38 +27,45 @@ public class ConverterController implements Initializable {
     @FXML
     private TextField romField;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        BinaryConvert binary = new BinaryConvert();
-//        HexaConvert hex = new HexaConvert();
-//        Roman roman = new Roman();
-//
-//        decToHexaField.setOnKeyPressed(convertion ->{
-//            if(!decToHexaField.getText().equals("")){
-//                hexaToDecField.setText(hex.decimalToHexadecimal(Double.parseDouble(decToHexaField.getText())));
-//            }
-//        });
-//        hexaToDecField.setOnKeyPressed(convertion ->{
-//            if(!hexaToDecField.getText().equals("")) {
-//                decToHexaField.setText(hex.hexadecimalToDecimal(hexaToDecField.getText()));
-//            }
-//        });
-//
-//        decToBinField.setOnKeyPressed(convertion ->{
-//            if(!decToBinField.getText().equals("")) {
-//                binToDecField.setText(binary.decimalToBinaire(Integer.parseInt(decToBinField.getText())));
-//            }
-//        });
-//        binToDecField.setOnKeyPressed(convertion ->{
-//            if(!binToDecField.getText().equals("")) {
-//                decToBinField.setText(binary.binaireToDecimal(binToDecField.getText()));
-//            }
-//        });
-//
-//        decToRomField.setOnKeyPressed(convertion ->{
-//            if(!decToRomField.getText().equals("")) {
-//                romField.setText(roman.decimalToRomain(Integer.parseInt(decToRomField.getText())));
-//            }
-//        });
+        BinaryConvert binary = new BinaryConvert();
+        HexaConvert hex = new HexaConvert();
+        Roman roman = new Roman();
+        try{
+            decToHexaField.setOnKeyPressed(convertion ->{
+                if(!decToHexaField.getText().equals("")){
+                    hexaToDecField.setText(hex.decimalToHexadecimal(Double.parseDouble(decToHexaField.getText())));
+                }else hexaToDecField.setText("");
+            });
+            hexaToDecField.setOnKeyPressed(convertion ->{
+                if(!hexaToDecField.getText().equals("")) {
+                    decToHexaField.setText(hex.hexadecimalToDecimal(hexaToDecField.getText()));
+                }else decToHexaField.setText("");
+            });
+
+            decToBinField.setOnKeyPressed(convertion ->{
+                if(!decToBinField.getText().equals("")) {
+                    binToDecField.setText(binary.decimalToBinaire(Integer.parseInt(decToBinField.getText())));
+                }else binToDecField.setText("");
+            });
+            binToDecField.setOnKeyPressed(convertion ->{
+                if(!binToDecField.getText().equals("")) {
+                    decToBinField.setText(binary.binaireToDecimal(binToDecField.getText()));
+                }else decToBinField.setText("");
+            });
+
+            decToRomField.setOnKeyPressed(convertion ->{
+                if(!decToRomField.getText().equals("")) {
+                    romField.setText(roman.decimalToRomain(Integer.parseInt(decToRomField.getText())));
+                }else romField.setText("");
+            });
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 }
