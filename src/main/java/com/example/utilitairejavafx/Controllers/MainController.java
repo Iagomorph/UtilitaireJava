@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,8 +35,16 @@ public class MainController implements Initializable {
     @FXML
     private Button btnSim;
 
+    @FXML
+    private VBox tabBiblio;
+
+    @FXML
+    private VBox containerCentral;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        btnConvert.setOnMouseClicked(btnaction -> {
+            containerCentral.getChildren().removeAll(tabBiblio,);
+        });
     }
 }
