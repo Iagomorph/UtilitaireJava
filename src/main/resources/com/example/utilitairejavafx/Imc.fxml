@@ -26,7 +26,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets />
+                  <Insets left="10.0" />
                </HBox.margin>
                <children>
                   <Label text="Insérez votre taille ">

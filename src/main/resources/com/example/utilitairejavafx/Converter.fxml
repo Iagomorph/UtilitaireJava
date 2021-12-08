@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ConverterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ConverterController">
    <children>
       <HBox prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -18,7 +18,7 @@
                   <Insets top="10.0" />
                </HBox.margin>
                <children>
-                  <Label text="Conversion Decimal &lt;--&gt; Hexadecimal" textAlignment="CENTER" translateX="77.0">
+                  <Label layoutX="8.0" layoutY="3.0" text="Conversion Decimal &lt;--&gt; Hexadecimal" textAlignment="CENTER" translateX="77.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -32,7 +32,7 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox layoutX="223.0" layoutY="33.0" prefHeight="147.0" prefWidth="223.0">
+                  <HBox layoutX="241.0" layoutY="33.0" prefHeight="147.0" prefWidth="223.0">
                      <children>
                         <TextField fx:id="hexaToDecField">
                            <HBox.margin>
@@ -49,7 +49,7 @@
          <children>
             <AnchorPane prefHeight="180.0" prefWidth="453.0">
                <children>
-                  <Label layoutY="10.0" text="Conversion Binaire &lt;--&gt; Decimal" translateX="105.0">
+                  <Label layoutX="12.0" layoutY="14.0" text="Conversion Binaire &lt;--&gt; Decimal" translateX="105.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -63,7 +63,7 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox layoutX="224.0" layoutY="33.0" prefHeight="147.0" prefWidth="223.0">
+                  <HBox layoutX="241.0" layoutY="33.0" prefHeight="147.0" prefWidth="223.0">
                      <children>
                         <TextField fx:id="decToBinField">
                            <HBox.margin>
@@ -83,7 +83,7 @@
                   <Insets top="10.0" />
                </HBox.margin>
                <children>
-                  <Label text="Conversion Decimal -&gt; Romain" translateX="110.0">
+                  <Label layoutX="17.0" layoutY="3.0" text="Conversion Decimal -&gt; Romain" translateX="110.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -97,7 +97,7 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox layoutX="224.0" layoutY="23.0" prefHeight="147.0" prefWidth="223.0">
+                  <HBox layoutX="244.0" layoutY="23.0" prefHeight="147.0" prefWidth="223.0">
                      <children>
                         <TextField fx:id="romField">
                            <HBox.margin>
