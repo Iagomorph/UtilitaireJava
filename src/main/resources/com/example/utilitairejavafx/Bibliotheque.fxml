@@ -6,7 +6,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.LibraryController">
    <children>
-      <TableView fx:id="tabBibliothèque" prefHeight="254.0" prefWidth="430.0">
+      <TableView fx:id="tabBibliothèque" prefHeight="557.0" prefWidth="466.0">
         <columns>
           <TableColumn fx:id="colTitre" prefWidth="75.0" text="Titre" />
           <TableColumn fx:id="colAuteur" prefWidth="75.0" text="Auteur" />

@@ -1,0 +1,12 @@
+#imclogo{
+    -fx-graphic: url(../utilitairejavafx/imc-logo.png);
+}
+#booklogo{
+    -fx-graphic: url(../utilitairejavafx/LogoBook.jpeg);
+}
+#convertlogo{
+    -fx-graphic: url(../utilitairejavafx/convertIcon.png);
+}
+#armylogo{
+    -fx-graphic: url(../utilitairejavafx/ArmeeLogo.jpeg);
+}
