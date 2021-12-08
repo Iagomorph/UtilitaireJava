@@ -1,12 +1,29 @@
-#imclogo{
-    -fx-graphic: url(../utilitairejavafx/imc-logo.png);
+#btnIMC {
+    -fx-background-image: url(../utilitairejavafx/imcLogo.png);
+    -fx-background-size: 25px 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 5px;
 }
-#booklogo{
-    -fx-graphic: url(../utilitairejavafx/LogoBook.jpeg);
+
+#btnLibrary {
+    -fx-background-image: url(../utilitairejavafx/booklogo.png);
+    -fx-background-size: 25px 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 5px;
 }
-#convertlogo{
-    -fx-graphic: url(../utilitairejavafx/convertIcon.png);
+
+#btnConvert {
+    -fx-background-image: url(../utilitairejavafx/convertlogo.png);
+    -fx-background-size: 25px 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 5px ;
 }
-#armylogo{
-    -fx-graphic: url(../utilitairejavafx/ArmeeLogo.jpeg);
+
+#btnSim {
+    -fx-background-image: url(../utilitairejavafx/armylogo.png);
+    -fx-background-size: 25px 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 5px;
+
+
 }
