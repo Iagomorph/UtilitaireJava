@@ -9,65 +9,85 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.FormulaireController">
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.FormulaireController">
    <children>
-      <VBox prefHeight="360.0" prefWidth="78.0" spacing="10.0">
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="319.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="123.0" text="Titre : " />
-            <Label prefHeight="26.0" prefWidth="123.0" text="Auteur : " />
-            <Label prefHeight="26.0" prefWidth="123.0" text="Parution : " />
-            <Label prefHeight="26.0" prefWidth="123.0" text="Colonne : ">
-               <VBox.margin>
-                  <Insets bottom="7.0" />
-               </VBox.margin></Label>
-            <Label prefHeight="26.0" prefWidth="123.0" text="Rangée : ">
-               <VBox.margin>
-                  <Insets bottom="7.0" />
-               </VBox.margin></Label>
-            <Label prefHeight="26.0" prefWidth="123.0" text="Résumé : ">
-               <VBox.margin>
-                  <Insets bottom="59.0" />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="26.0" prefWidth="123.0" text="Couverture : ">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="26.0" prefWidth="123.0" text="Aperçu : " />
+            <VBox prefHeight="360.0" prefWidth="78.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Titre : " />
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Auteur : " />
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Parution : ">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Colonne : ">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Rangée : ">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Résumé : ">
+                     <VBox.margin>
+                        <Insets bottom="59.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Couverture : ">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="123.0" text="Aperçu : " />
+               </children>
+            </VBox>
+            <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="360.0" prefWidth="158.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="txtTitre" prefHeight="20.0" prefWidth="477.0" />
+                  <TextField fx:id="txtAuteur" />
+                  <TextField fx:id="txtParution" />
+                  <Label fx:id="txtErrPar" prefHeight="17.0" prefWidth="210.0" textFill="#970000">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-10.0" left="2.0" top="-10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtColonne" />
+                  <Label fx:id="txtErrCol" prefHeight="17.0" prefWidth="210.0" textFill="#970000">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-10.0" left="2.0" top="-10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtRange" />
+                  <Label fx:id="txtErrRan" prefHeight="17.0" prefWidth="210.0" textFill="#970000">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-10.0" left="2.0" top="-10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtResume" prefHeight="84.0" prefWidth="477.0" />
+                  <TextField fx:id="txtCouverture" />
+                  <ImageView fx:id="imgApercu" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="txtError" prefHeight="17.0" prefWidth="154.0" />
+                  <Button fx:id="btnValider" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Valider" />
+               </children>
+            </VBox>
          </children>
-      </VBox>
-      <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="360.0" prefWidth="158.0" spacing="10.0">
-         <children>
-            <TextField fx:id="txtTitre" prefHeight="20.0" prefWidth="477.0" />
-            <TextField fx:id="txtAuteur" />
-            <TextField fx:id="TxtParution" />
-            <TextField fx:id="txtColonne" />
-            <Label fx:id="txtErrCol" prefHeight="17.0" prefWidth="210.0" textFill="#970000">
-               <font>
-                  <Font name="System Italic" size="10.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="-10.0" left="2.0" top="-10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="txtRange" />
-            <Label fx:id="txtErrRan" prefHeight="17.0" prefWidth="210.0" textFill="#970000">
-               <font>
-                  <Font name="System Italic" size="10.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="-10.0" left="2.0" top="-10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="txtResume" prefHeight="84.0" prefWidth="477.0" />
-            <TextField fx:id="txtCouverture" />
-            <ImageView fx:id="imgApercu" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnValider" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Valider" />
-         </children>
-      </VBox>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</HBox>
+</VBox>
