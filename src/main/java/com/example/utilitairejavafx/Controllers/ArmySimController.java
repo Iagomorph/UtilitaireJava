@@ -28,14 +28,18 @@ public class ArmySimController implements Initializable {
 
         ContextMenu contextMenu = new ContextMenu();
 
-        MenuItem menuItem1 = new MenuItem("Choice 1");
-        MenuItem menuItem2 = new MenuItem("Choice 2");
-        MenuItem menuItem3 = new MenuItem("Choice 3");
+        MenuItem menuItem1 = new MenuItem("Créer Un Général");
+        MenuItem menuItem2 = new MenuItem("Créer Un Soldat");
+//        MenuItem menuItem3 = new MenuItem("Assigner à un général");
+            menuItem1.setOnAction(generalmaker -> {
+
+            });
 
 
-        contextMenu.getItems().addAll(menuItem1,menuItem2,menuItem3);
+        contextMenu.getItems().addAll(menuItem1,menuItem2);
 
         armyTree.setContextMenu(contextMenu);
+
 //        armyTree.setRoot();
 
 
