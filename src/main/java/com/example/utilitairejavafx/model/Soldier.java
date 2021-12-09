@@ -11,5 +11,11 @@ public class Soldier {
         this.rank = rank;
     }
 
-
+    @Override
+    public String toString() {
+        return "Soldat " +
+                " nom : " + name +
+                " hp : " + hp +
+                " rang : " + rank ;
+    }
 }

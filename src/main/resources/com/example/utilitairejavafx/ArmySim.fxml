@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ArmySimController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ArmySimController">
    <children>
       <TreeView fx:id="armyTree" prefHeight="525.0" prefWidth="466.0" />
+      <Pane fx:id="InputArmy" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="hpField" layoutX="14.0" layoutY="56.0" />
+            <TextField fx:id="nameField" layoutX="198.0" layoutY="56.0" />
+            <TextField fx:id="rankField" layoutX="382.0" layoutY="56.0" />
+            <Label fx:id="hpLabel" layoutX="14.0" layoutY="30.0" text="Hp" />
+            <Label fx:id="nameLabel" layoutX="198.0" layoutY="30.0" text="Nom" />
+            <Label fx:id="rankLabel" layoutX="382.0" layoutY="30.0" text="Rank" />
+            <Button fx:id="btnConfirm" layoutX="250.0" layoutY="99.0" mnemonicParsing="false" text="Créer" />
+         </children>
+      </Pane>
    </children>
 </VBox>
