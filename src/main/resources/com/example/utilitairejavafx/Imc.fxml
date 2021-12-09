@@ -1,69 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ConverterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.ImcController">
    <children>
-      <Label text="Calculateur D'IMC">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="150.0" top="20.0" />
-         </VBox.margin>
-      </Label>
-      <HBox prefHeight="508.0" prefWidth="448.0">
+      <HBox fx:id="containerCentralIMC" prefHeight="282.0" prefWidth="448.0">
          <children>
-            <VBox prefHeight="520.0" prefWidth="223.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="347.0">
                <children>
-                  <Label text="Insérez votre taille ">
-                     <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="tailleField">
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Insérez votre poids">
-                     <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="poidsField">
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </TextField>
+                  <Label layoutX="30.0" layoutY="43.0" prefHeight="26.0" prefWidth="92.0" text="Poids en kilo :" />
+                  <Label layoutX="32.0" layoutY="135.0" prefHeight="26.0" prefWidth="103.0" text="Taille en m :" />
+                  <TextField fx:id="TFKilo" layoutX="30.0" layoutY="78.0" />
+                  <TextField fx:id="TFTaille" layoutX="30.0" layoutY="168.0" />
+                  <Button fx:id="buttonCalculIMC" layoutX="32.0" layoutY="221.0" mnemonicParsing="false" text="Calculer IMC" />
                </children>
-            </VBox>
-            <VBox prefHeight="552.0" prefWidth="223.0">
-               <children>
-                  <AnchorPane prefHeight="503.0" prefWidth="223.0">
-                     <children>
-                        <Label fx:id="imcText" layoutX="14.0" layoutY="71.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </VBox>
+            </AnchorPane>
          </children>
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
       </HBox>
+      <AnchorPane prefHeight="205.0" prefWidth="449.0">
+         <children>
+            <TextField fx:id="TFResultatIMC" layoutX="33.0" layoutY="67.0" />
+            <Label layoutX="33.0" layoutY="37.0" text="IMC :" />
+            <Label fx:id="comment" layoutX="33.0" layoutY="130.0" text="Commentaire" />
+         </children>
+      </AnchorPane>
    </children>
 </VBox>
