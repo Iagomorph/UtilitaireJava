@@ -4,13 +4,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import java.io.*;
 
-import java.lang.reflect.AnnotatedType;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Year;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -37,7 +41,7 @@ public class FormulaireController implements Initializable {
     private TextField txtRange;
 
     @FXML
-    private TextField txtResume;
+    private TextArea txtResume;
 
     @FXML
     private TextField txtTitre;
@@ -52,9 +56,6 @@ public class FormulaireController implements Initializable {
     private Label txtErrPar;
 
     @FXML
-    private VBox container;
-
-    @FXML
     private Label txtError;
 
 
@@ -66,6 +67,7 @@ public class FormulaireController implements Initializable {
         AtomicBoolean errorPar = new AtomicBoolean(true);
         AtomicBoolean errorTit = new AtomicBoolean(true);
         AtomicBoolean errorAut = new AtomicBoolean(true);
+        AtomicBoolean errorCou = new AtomicBoolean(true);
 
         btnValider.setDisable(true);
         AtomicBoolean bool = new AtomicBoolean(false);
@@ -75,7 +77,7 @@ public class FormulaireController implements Initializable {
                 errorTit.set(true);
             } else errorTit.set(false);
 
-            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
@@ -89,7 +91,7 @@ public class FormulaireController implements Initializable {
                 errorAut.set(true);
             } else errorAut.set(false);
 
-            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
@@ -105,7 +107,7 @@ public class FormulaireController implements Initializable {
                 range = Integer.parseInt(txtRange.getText());
                 bool.set(false);
             } catch (Exception e) {
-                txtErrRan.setText("Erreur : Le chiffre est pô bon banane");
+                txtErrRan.setText("Erreur : Veuillez saisir un chiffre");
                 errorRan.set(true);
                 bool.set(true);
             }
@@ -120,7 +122,7 @@ public class FormulaireController implements Initializable {
                 errorRan.set(false);
             }
             if (bool.get()) {
-                txtErrRan.setText("Erreur : Le chiffre est pô bon banane");
+                txtErrRan.setText("Erreur : Veuillez saisir un chiffre");
                 errorRan.set(true);
             }
             if (txtRange.getText() == "") {
@@ -128,7 +130,7 @@ public class FormulaireController implements Initializable {
                 errorRan.set(true);
             }
 
-            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
@@ -142,15 +144,15 @@ public class FormulaireController implements Initializable {
                 range = Integer.parseInt(txtColonne.getText());
                 bool.set(false);
             } catch (Exception e) {
-                txtErrCol.setText("Erreur : Ce n'est pas un chiffre valable, on est pas chez les putes");
+                txtErrCol.setText("Erreur : Veuillez saisir un chiffre");
                 errorCol.set(true);
                 bool.set(true);
             }
 
-            if (range > 7 && txtColonne.getText() != "") {
+            if (range > 7 && !Objects.equals(txtColonne.getText(), "")) {
                 txtErrCol.setText("Erreur : La colonne est trop grande");
                 errorCol.set(true);
-            } else if (range < 1 && txtColonne.getText() != "") {
+            } else if (range < 1 && !Objects.equals(txtColonne.getText(), "")) {
                 txtErrCol.setText("Erreur : La colonne est trop petite");
                 errorCol.set(true);
             } else {
@@ -158,13 +160,13 @@ public class FormulaireController implements Initializable {
                 errorCol.set(false);
             }
 
-            if (bool.get()) txtErrCol.setText("Erreur : Ce n'est pas un chiffre valable, on est pas chez les putes");
+            if (bool.get()) txtErrCol.setText("Veuillez saisir un chiffre");
             if (txtColonne.getText() == "") {
                 txtErrCol.setText("");
                 errorCol.set(true);
             }
 
-            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
@@ -179,7 +181,7 @@ public class FormulaireController implements Initializable {
                 parution = Integer.parseInt(txtParution.getText());
                 bool.set(false);
             } catch (Exception e) {
-                txtErrPar.setText("Erreur : C pa un chifr ");
+                txtErrPar.setText("Erreur : Veuillez saisir un chiffre");
                 errorPar.set(true);
                 bool.set(true);
             }
@@ -191,7 +193,7 @@ public class FormulaireController implements Initializable {
                 errorPar.set(false);
             }
             if (bool.get()) {
-                txtErrPar.setText("Erreur : C pa un chifr ");
+                txtErrPar.setText("Erreur : Veuillez saisir un chiffre");
                 errorPar.set(true);
             }
             if (txtParution.getText() == "") {
@@ -199,7 +201,35 @@ public class FormulaireController implements Initializable {
                 errorPar.set(true);
             }
 
-            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
+                btnValider.setDisable(true);
+            } else {
+                btnValider.setDisable(false);
+            }
+
+        });
+
+        txtCouverture.setOnKeyTyped(Url -> {
+
+            String urlImg;
+            urlImg = txtCouverture.getText();
+            Image image = null;
+            try{
+                image = new Image(String.valueOf(urlImg));
+            }
+            catch (Exception ignored){
+            }
+
+            if (Objects.equals(urlImg, "")){
+                imgApercu.setImage(null);
+            }
+            else imgApercu.setImage(image);
+
+            if (txtCouverture.getText() == "") {
+                errorCou.set(true);
+            } else errorCou.set(false);
+
+            if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get() || errorCou.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
@@ -215,13 +245,10 @@ public class FormulaireController implements Initializable {
             txtRange.setText("");
             txtResume.setText("");
             txtCouverture.setText("");
+            imgApercu.setImage(null);
+
         });
 
 
-//        txtTitre.setOnKeyTyped(Valide);
-
-//        btnValider.setOnAction(Valider -> {
-//            String urlImg = txtCouverture.getText();
-//        });
     }
 }

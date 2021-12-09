@@ -46,7 +46,7 @@
                   <Label prefHeight="26.0" prefWidth="123.0" text="Aperçu : " />
                </children>
             </VBox>
-            <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="360.0" prefWidth="158.0" spacing="10.0">
+            <VBox fx:id="container" alignment="TOP_CENTER" minWidth="158.0" prefHeight="360.0" prefWidth="158.0" spacing="10.0">
                <children>
                   <TextField fx:id="txtTitre" prefHeight="20.0" prefWidth="477.0" />
                   <TextField fx:id="txtAuteur" />

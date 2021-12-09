@@ -5,14 +5,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.LibraryController">
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.utilitairejavafx.Controllers.FormulaireController">
    <children>
       <HBox>
          <children>
@@ -55,7 +55,7 @@
                               </Label>
                               <Label prefHeight="26.0" prefWidth="123.0" text="Résumé : ">
                                  <VBox.margin>
-                                    <Insets bottom="59.0" />
+                                    <Insets bottom="81.0" />
                                  </VBox.margin>
                               </Label>
                               <Label prefHeight="26.0" prefWidth="123.0" text="Couverture : ">
@@ -97,7 +97,7 @@
                                     <Insets bottom="-10.0" left="2.0" top="-10.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="txtResume" prefHeight="84.0" prefWidth="477.0" />
+                              <TextArea fx:id="txtResume" prefHeight="107.0" prefWidth="200.0" wrapText="true" />
                               <TextField fx:id="txtCouverture" />
                               <ImageView fx:id="imgApercu" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                               <Label fx:id="txtError" prefHeight="17.0" prefWidth="154.0" />
