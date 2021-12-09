@@ -10,14 +10,22 @@ import javafx.scene.control.TreeItem;
 
 public class ArmySimController implements Initializable {
     @FXML
-    private TreeView<?> armyTree;
+    private TreeView<String> armyTree;
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
+        try {
         TreeItem<String> army = new TreeItem<> ("Mon Armée");
         army.setExpanded(true);
+        TreeItem general = new TreeItem("Généraux");
+        army.getChildren().addAll(
+                general
+        );
+        armyTree.setRoot(army);
 
-//        armyTree.setRoot();
-    }
-}
+
+    }catch (Exception e){
+            System.out.println(e);
+        }
+    }}
