@@ -50,6 +50,12 @@
                      </VBox.margin>
                   </HBox>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
             <VBox>
                <children>
