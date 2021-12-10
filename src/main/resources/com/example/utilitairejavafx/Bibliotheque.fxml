@@ -128,6 +128,14 @@
                               <TextField fx:id="txtCouverture" />
                               <ImageView fx:id="imgApercu" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="btnValider" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Valider" />
+                              <Label fx:id="txtErrPlace" prefHeight="37.0" prefWidth="158.0" textAlignment="CENTER" textFill="#970000" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="10.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="-10.0" />
+                                 </VBox.margin>
+                              </Label>
                            </children>
                         </VBox>
                      </children>

@@ -86,6 +86,9 @@ public class LibraryController implements Initializable {
     @FXML
     private Button btnAnnuler;
 
+    @FXML
+    private Label txtErrPlace;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -168,6 +171,8 @@ public class LibraryController implements Initializable {
             } else {
                 btnValider.setDisable(false);
             }
+
+
 
         });
 
@@ -285,33 +290,63 @@ public class LibraryController implements Initializable {
 
             Book bookAdd = new Book(titreLivre, auteurLivre, publicationLivre, colonneLivre, rangeeLivre, resumeLivre, urlCouvertureLivre);
 
-            if(rowNum.get() != -1){
-                bibliotheque.set(rowNum.get(), bookAdd);
+            boolean errPlace = false;
+
+            if (rowNum.get()!=-1){
+                for (int i = 0; i < bibliotheque.size(); i++){
+                    int indexCol = Integer.parseInt(String.valueOf(bibliotheque.get(i).getColumn()));
+                    int indexRan = Integer.parseInt(String.valueOf(bibliotheque.get(i).getRow()));
+
+                    if(colonneLivre == indexCol && rangeeLivre == indexRan){
+                        if(rowNum.get() != i){
+                            txtErrPlace.setText("La colonne et la rangée sont déjà occupées");
+                            errPlace = true;
+                        }
+                    }
+                }
             }
-            else bibliotheque.add(bookAdd);
+            else{
+                for (int i = 0; i < bibliotheque.size(); i++){
+                    int indexCol = Integer.parseInt(String.valueOf(bibliotheque.get(i).getColumn()));
+                    int indexRan = Integer.parseInt(String.valueOf(bibliotheque.get(i).getRow()));
 
-            tabBibliothèque.setItems(bibliotheque);
+                    if(colonneLivre == indexCol && rangeeLivre == indexRan){
+                        txtErrPlace.setText("La colonne et la rangée sont déjà occupées");
+                        errPlace = true;
+                    }
+                }
+            }
 
+            if(!errPlace){
+                txtErrPlace.setText("");
 
-            txtTitre.setText("");
-            txtAuteur.setText("");
-            txtParution.setText("");
-            txtColonne.setText("");
-            txtRange.setText("");
-            txtResume.setText("");
-            txtCouverture.setText("");
-            imgApercu.setImage(null);
-
-            errorCol.set(true);
-            errorRan.set(true);
-            errorAut.set(true);
-            errorTit.set(true);
-            errorPar.set(true);
-
-            btnValider.setDisable(true);
+                if(rowNum.get() != -1){
+                    bibliotheque.set(rowNum.get(), bookAdd);
+                }
+                else bibliotheque.add(bookAdd);
 
 
+                tabBibliothèque.setItems(bibliotheque);
 
+                txtTitre.setText("");
+                txtAuteur.setText("");
+                txtParution.setText("");
+                txtColonne.setText("");
+                txtRange.setText("");
+                txtResume.setText("");
+                txtCouverture.setText("");
+                imgApercu.setImage(null);
+
+
+                errorCol.set(true);
+                errorRan.set(true);
+                errorAut.set(true);
+                errorTit.set(true);
+                errorPar.set(true);
+
+                btnValider.setDisable(true);
+
+            }
         });
 
         tabBibliothèque.getSelectionModel().getSelectedItems().addListener((ListChangeListener<Book>) change -> {
@@ -368,6 +403,8 @@ public class LibraryController implements Initializable {
             }
             else txtErrSupp.setText("Erreur : vous n'avez selectionné aucune ligne");
 
+            btnValider.setDisable(true);
+
 
 
         });
@@ -384,6 +421,8 @@ public class LibraryController implements Initializable {
             txtResume.setText("");
             txtCouverture.setText("");
             imgApercu.setImage(null);
+
+            btnValider.setDisable(true);
 
         });
     }
