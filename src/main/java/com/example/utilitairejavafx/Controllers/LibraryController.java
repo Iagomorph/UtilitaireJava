@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class LibraryController implements Initializable {
     @FXML
@@ -107,11 +106,13 @@ public class LibraryController implements Initializable {
 
         txtTitre.setOnKeyTyped(Action -> {
 
-
+            //Vérification qu'un titre à bien été saisi
 
             if (txtTitre.getText() == "") {
                 errorTit.set(true);
             } else errorTit.set(false);
+
+            //Si aucun des champs à remplir n'a d'erreur, le bouton valider devient cliquable
 
             if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
                 btnValider.setDisable(true);
@@ -123,9 +124,14 @@ public class LibraryController implements Initializable {
         });
 
         txtAuteur.setOnKeyTyped(Action -> {
+
+            //Vérification qu'un auteur à bien été saisi
+
             if (txtAuteur.getText() == "") {
                 errorAut.set(true);
             } else errorAut.set(false);
+
+            //Si aucun des champs à remplir n'a d'erreur, le bouton valider devient cliquable
 
             if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
                 btnValider.setDisable(true);
@@ -137,20 +143,29 @@ public class LibraryController implements Initializable {
 
         txtRange.setOnKeyTyped(Erreur -> {
 
+            // Vérification de la valeur de la rangée
 
             int range = 0;
             try {
                 range = Integer.parseInt(txtRange.getText());
                 bool.set(false);
             } catch (Exception e) {
+
+                //Si la rangée n'est pas un chiffre
+
                 txtErrRan.setText("Erreur : Veuillez saisir un chiffre");
                 errorRan.set(true);
                 bool.set(true);
             }
+            //Si la rangée est trop grande
+
             if (range > 7) {
                 txtErrRan.setText("Erreur : La rangée est trop grande");
                 errorRan.set(true);
-            } else if (range < 1) {
+            }
+            //Si la rangée est trop petite
+
+            else if (range < 1) {
                 txtErrRan.setText("Erreur : La rangée est trop petite");
                 errorRan.set(true);
             } else {
@@ -161,10 +176,13 @@ public class LibraryController implements Initializable {
                 txtErrRan.setText("Erreur : Veuillez saisir un chiffre");
                 errorRan.set(true);
             }
+            //Si la rangée est vide
             if (txtRange.getText() == "") {
                 txtErrRan.setText("");
                 errorRan.set(true);
             }
+
+            //Si aucun des champs à remplir n'a d'erreur, le bouton valider devient cliquable
 
             if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
                 btnValider.setDisable(true);
@@ -178,19 +196,31 @@ public class LibraryController implements Initializable {
 
         txtColonne.setOnKeyTyped(Erreur -> {
             int range = 0;
+
+            //Vérification de la valeur de la colonne
+
             try {
                 range = Integer.parseInt(txtColonne.getText());
                 bool.set(false);
             } catch (Exception e) {
+
+                //Si la valeur n'est pas un chiffre
+
                 txtErrCol.setText("Erreur : Veuillez saisir un chiffre");
                 errorCol.set(true);
                 bool.set(true);
             }
 
+            //Si la valeur est trop grande
+
             if (range > 7 && !Objects.equals(txtColonne.getText(), "")) {
                 txtErrCol.setText("Erreur : La colonne est trop grande");
                 errorCol.set(true);
-            } else if (range < 1 && !Objects.equals(txtColonne.getText(), "")) {
+            }
+
+            //Si la valeur est trop petite
+
+            else if (range < 1 && !Objects.equals(txtColonne.getText(), "")) {
                 txtErrCol.setText("Erreur : La colonne est trop petite");
                 errorCol.set(true);
             } else {
@@ -199,10 +229,15 @@ public class LibraryController implements Initializable {
             }
 
             if (bool.get()) txtErrCol.setText("Veuillez saisir un chiffre");
+
+            //Si le champs est vide
+
             if (txtColonne.getText() == "") {
                 txtErrCol.setText("");
                 errorCol.set(true);
             }
+
+            //Si aucun des champs à remplir n'a d'erreur, le bouton valider devient cliquable
 
             if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
                 btnValider.setDisable(true);
@@ -215,14 +250,23 @@ public class LibraryController implements Initializable {
         txtParution.setOnKeyTyped(Erreur -> {
             int parution = 0;
             int annee = Year.now().getValue();
+
+            //Vérification de l'année de parution
+
             try {
                 parution = Integer.parseInt(txtParution.getText());
                 bool.set(false);
             } catch (Exception e) {
+
+                //Si la valeur n'est pas un chiffre
+
                 txtErrPar.setText("Erreur : Veuillez saisir un chiffre");
                 errorPar.set(true);
                 bool.set(true);
             }
+
+            //Si l'année est trop grande
+
             if (parution > annee) {
                 txtErrPar.setText("Erreur : L'année de parution est dans le futur ");
                 errorPar.set(true);
@@ -234,20 +278,26 @@ public class LibraryController implements Initializable {
                 txtErrPar.setText("Erreur : Veuillez saisir un chiffre");
                 errorPar.set(true);
             }
+
+            //Si le champs est vide
+
             if (txtParution.getText() == "") {
                 txtErrPar.setText("");
                 errorPar.set(true);
             }
+
+            //Si aucun des champs à remplir n'a d'erreur, le bouton valider devient cliquable
 
             if (errorPar.get() || errorCol.get() || errorRan.get() || errorAut.get() || errorTit.get()) {
                 btnValider.setDisable(true);
             } else {
                 btnValider.setDisable(false);
             }
-
         });
 
         txtCouverture.setOnKeyTyped(Url -> {
+
+            //Afficher l'image donnée par l'url, si un url est saisi dans le champs
 
             String urlImg;
             urlImg = txtCouverture.getText();
@@ -262,6 +312,8 @@ public class LibraryController implements Initializable {
             } else imgApercu.setImage(image);
         });
 
+        //Associer les valeurs correspondantes à chaque colonne du tableau
+
         colTitre.setCellValueFactory(new PropertyValueFactory<>("title"));
         colAuteur.setCellValueFactory(new PropertyValueFactory<>("author"));
         colParution.setCellValueFactory(new PropertyValueFactory<>("publication"));
@@ -272,6 +324,8 @@ public class LibraryController implements Initializable {
         ObservableList<Book> bibliotheque = FXCollections.observableArrayList();
 
         btnValider.setOnMouseClicked(Valider -> {
+
+            //Récuperation de ce qui a été saisi dans les champs
 
             String titreLivre = txtTitre.getText();
             String auteurLivre = txtAuteur.getText();
@@ -291,6 +345,9 @@ public class LibraryController implements Initializable {
             Book bookAdd = new Book(titreLivre, auteurLivre, publicationLivre, colonneLivre, rangeeLivre, resumeLivre, urlCouvertureLivre);
 
             boolean errPlace = false;
+
+            //Affiche une erreur si la colonne et la rangée sont déjà occupée par un livre
+
 
             if (rowNum.get()!=-1){
                 for (int i = 0; i < bibliotheque.size(); i++){
@@ -325,8 +382,11 @@ public class LibraryController implements Initializable {
                 }
                 else bibliotheque.add(bookAdd);
 
+                //Ajout au tableau le nouveau livre
 
                 tabBibliothèque.setItems(bibliotheque);
+
+                //Supprime le contenu des champs
 
                 txtTitre.setText("");
                 txtAuteur.setText("");
@@ -384,6 +444,8 @@ public class LibraryController implements Initializable {
         btnSupp.setOnMouseClicked(Supprimer ->{
 
             txtErrSupp.setText("");
+
+            //Suprrime la ligne selectionnée
 
             if(rowNum.get() != -1){
                 bibliotheque.remove(rowNum.get());

@@ -13,7 +13,7 @@ public class Roman {
             }
             if ((dec / 900) > 0) {
                 int neufcents = (int) Math.floor(dec / 900);
-                dec = dec - (dec * 900);
+                dec = dec - (neufcents * 900);
                 if (neufcents == 1) {
                     result += "CM";
                 }

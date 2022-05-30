@@ -205,7 +205,6 @@ public class ArmySimController implements Initializable {
             menuItem4.setOnAction(remover -> {
                 TreeItem selectedItem = armyTree.getSelectionModel().getSelectedItem();
                 selectedItem.getParent().getChildren().remove(selectedItem);
-
             });
         } catch (Exception e) {
             System.out.println(e);
